@@ -3,8 +3,13 @@ if (navigator.geolocation) {
 }
 const KELVIN = 273;
 function showPosition(position) {
-    const lati = position.coords.latitude;
-    const longi = position.coords.longitude;
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("weathercontent").style.display = "block";
+
+
+
+    const lati = +position.coords.latitude;
+    const longi = +position.coords.longitude;
     console.log("Latitude: " + lati + ' ' + "Longitude: " + longi);
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=82005d27a116c2880c8f0fcb866998a0`)
